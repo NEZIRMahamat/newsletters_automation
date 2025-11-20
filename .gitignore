@@ -1,0 +1,31 @@
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Fichiers Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Configuration locale
+*.env
+.env.*
+
+# VSCode
+.vscode/
+
+# Cache Streamlit
+.streamlit/
+
+# Logs
+*.log
+
+# Build
+build/
+dist/
+
+# OS files
+Thumbs.db
+.DS_Store
