@@ -1,2 +1,34 @@
-venv_newsletter-ai-multiagent/
-.env/
+# Ignorer votre environnement exact
+venv_newsletter-ai-multiagent
+
+# Et tous les autres environnements virtuels
+venv*/
+.venv*/
+env*/
+
+# Fichiers Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Configuration locale
+*.env
+.env.*
+
+# VSCode
+.vscode/
+
+# Cache Streamlit
+.streamlit/
+
+# Logs
+*.log
+
+# Build
+build/
+dist/
+
+# OS files
+Thumbs.db
+.DS_Store
