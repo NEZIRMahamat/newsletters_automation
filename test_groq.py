@@ -10,7 +10,7 @@ client = Groq(api_key=os.getenv('GROQ_API'))
 try:
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": "Test de connexion"}],
-        model="llama3-8b-8192",
+        model="llama-3.1-8b-instant",
     )
     print("✅ Connexion Groq réussie!")
     print(chat_completion.choices[0].message.content)
