@@ -1,0 +1,9 @@
+{
+  "default": {
+    "domain": "IA",
+    "num_articles": 10,
+    "frequency": "weekly",
+    "last_sent": null,
+    "use_llm": true
+  }
+}

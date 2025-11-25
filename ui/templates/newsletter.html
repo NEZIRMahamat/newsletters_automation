@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter IA - Articles</title>
+    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .header-info {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-3px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .stats {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .btn-refresh {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-refresh:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-refresh:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .articles-container {
+            display: grid;
+            gap: 20px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .article-card h3 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .article-card h3 a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .article-card h3 a:hover {
+            text-decoration: underline;
+        }
+
+        .meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #999;
+            flex-wrap: wrap;
+        }
+
+        .source {
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .date {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .short-summary {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .tag {
+            background: #e8f0ff;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .score {
+            background: #f8f9ff;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 3px solid #667eea;
+        }
+
+        .score-value {
+            display: block;
+            font-weight: 600;
+            color: #667eea;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .score-details {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 12px;
+            transition: all 0.3s;
+        }
+
+        .read-more:hover {
+            color: #764ba2;
+            margin-right: -5px;
+        }
+
+        .read-more::after {
+            content: ' →';
+        }
+
+        details {
+            margin-top: 12px;
+        }
+
+        summary {
+            cursor: pointer;
+            color: #667eea;
+            font-weight: 600;
+            font-size: 13px;
+            user-select: none;
+        }
+
+        summary:hover {
+            text-decoration: underline;
+        }
+
+        details[open] summary {
+            margin-bottom: 10px;
+        }
+
+        details p {
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 5px;
+            line-height: 1.6;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid #667eea;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .empty h2 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-refresh {
+                width: 100%;
+            }
+
+            .article-card {
+                padding: 16px;
+            }
+
+            .article-card h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <h1>📰 Votre Newsletter IA</h1>
+                <div class="header-info" id="headerInfo">
+                    Chargement des articles...
+                </div>
+            </div>
+            <a href="/" class="btn-back">← Modifier paramètres</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <div class="stats" id="stats">
+                Articles : --
+            </div>
+            <button 
+                class="btn-refresh" 
+                hx-get="/api/articles-html" 
+                hx-target="#articles" 
+                hx-swap="innerHTML"
+                onclick="this.disabled=true; this.textContent='Chargement...'"
+            >
+                🔄 Actualiser
+            </button>
+        </div>
+
+        <div id="articles" hx-get="/api/articles-html" hx-trigger="load" hx-swap="innerHTML">
+            <div class="loading">
+                <span class="spinner"></span>
+                Chargement des articles...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Afficher les infos de la config dans le header
+        fetch('/api/config')
+            .then(res => res.json())
+            .then(config => {
+                document.getElementById('headerInfo').textContent = 
+                    `${config.domain} • ${config.num_articles} articles • ${
+                        config.frequency === 'daily' ? 'Quotidienne' :
+                        config.frequency === 'weekly' ? 'Hebdomadaire' :
+                        'Mensuelle'
+                    }`;
+            });
+
+        // Mettre à jour le compteur d'articles quand ils se chargent
+        document.addEventListener('htmx:afterSwap', function(event) {
+            if (event.detail.target.id === 'articles') {
+                const articleCount = document.querySelectorAll('.article-card').length;
+                document.getElementById('stats').textContent = `Articles : ${articleCount}`;
+                
+                // Réactiver le bouton
+                const btn = document.querySelector('.btn-refresh');
+                btn.disabled = false;
+                btn.textContent = '🔄 Actualiser';
+            }
+        });
+    </script>
+</body>
+</html>

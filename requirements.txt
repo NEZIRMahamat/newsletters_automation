@@ -3,6 +3,10 @@ uvicorn
 feedparser
 requests
 pydantic
+pydantic-settings
 python-dotenv
 sqlalchemy
 apscheduler
+groq
+pandas
+streamlit

@@ -1,5 +1,6 @@
 import json
 from typing import List, Optional
+import difflib
 
 from pydantic import BaseModel, ValidationError
 from groq import Groq
@@ -103,3 +104,114 @@ def enrich_article_with_groq(article: ArticleBrut) -> ArticleEnrichi:
         raise
 
     return article_enrichi
+
+
+def filter_articles_with_llm(articles: List[ArticleBrut], user_query: str, max_results: int = 10, min_score: int = 30) -> List[ArticleBrut]:
+    """
+    Utilise le LLM pour sélectionner les articles les plus pertinents selon le domaine/mot-clé saisi par l'utilisateur.
+    Retourne une liste d'ArticleBrut (max_results).
+    Si l'API Groq n'est pas configurée, on retourne un fallback (premiers articles).
+    """
+    # Guard: si pas de clé Groq, fallback
+    if not settings.groq_api_key:
+        return articles[:max_results]
+
+    if not articles or not user_query:
+        return articles[:max_results]
+
+    # On prend seulement les premiers 40 articles pour limiter la taille du prompt
+    sample_articles = articles[:40]
+
+    # Préparer le texte des articles (titre + résumé court)
+    articles_text = "\n".join([
+        f"- Titre: {a.title}\nRésumé: {a.summary or ''}" for a in sample_articles
+    ])
+
+    # On numérote les articles et prépare un prompt demandant un JSON d'indices/score
+    enumerated = []
+    for i, a in enumerate(sample_articles):
+        enumerated.append(f"INDEX: {i}\nTitre: {a.title}\nRésumé: {a.summary or ''}\n")
+    enumerated_text = "\n".join(enumerated)
+
+    prompt = f"""
+Tu es un assistant expert en sélection d'articles. On te donne une liste d'articles (INDEX, titre + résumé) et un sujet.
+Ta tâche : pour le sujet donné, renvoyer un objet JSON array contenant les articles pertinents. Chaque élément doit être de la forme : {"index": <INDEX>, "score": <SCORE>}.
+Score : entier entre 0 (pas pertinent) et 100 (très pertinent).
+Retourne uniquement un JSON array (ex: [{"index": 0, "score": 90}, {"index": 4, "score": 75}]) trié par score décroissant.
+Sujet: {user_query}
+
+Liste d'articles:
+{enumerated_text}
+
+Règles :
+- Ne renvoie que du JSON valide. Pas d'explication textuelle.
+- Ne retourne que les articles pertinents ; si ton score est < {min_score} considère-le comme non pertinent.
+- Si tu ne trouves rien, retourne un tableau vide []
+"""
+
+    try:
+        completion = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": "Tu es un assistant qui sélectionne les articles les plus pertinents pour un sujet donné."},
+                {"role": "user", "content": prompt},
+            ],
+            response_format={"type": "json_object"},
+            temperature=0.1,
+            max_tokens=512,
+        )
+
+        raw_content = completion.choices[0].message.content
+        try:
+            json_data = json.loads(raw_content)
+        except Exception:
+            # Si JSON non valide, tenter fallback sur matching par mot clé
+            json_data = None
+
+        matched = []
+        if json_data and isinstance(json_data, list):
+            # json_data should be a list of objects with 'index' and 'score'
+            indices = []
+            for el in json_data:
+                if isinstance(el, dict) and 'index' in el:
+                    try:
+                        idx = int(el['index'])
+                        score = int(el.get('score', 0))
+                        if 0 <= idx < len(sample_articles):
+                            if score >= min_score:
+                                indices.append((idx, score))
+                    except Exception:
+                        continue
+            # Sort by score desc, take max_results
+            indices.sort(key=lambda x: x[1], reverse=True)
+            chosen = [sample_articles[i] for i, s in indices[:max_results]]
+            matched = chosen
+            # Logging
+            print(f"LLM selection JSON indices: {indices}")
+        else:
+            # Fallback behavior: perform fuzzy/substring matching on titles
+            raw = completion.choices[0].message.content.strip()
+            # old behavior: try to parse possibly titles separated by ';'
+            titles = [t.strip() for t in raw.split(';') if t.strip()]
+            for a in sample_articles:
+                atitle = a.title.strip().lower()
+                for t in titles:
+                    tnorm = t.strip().lower()
+                    if tnorm == atitle or tnorm in atitle or atitle in tnorm:
+                        matched.append(a)
+                        break
+                    ratio = difflib.SequenceMatcher(None, tnorm, atitle).ratio()
+                    if ratio >= 0.75:
+                        matched.append(a)
+                        break
+
+        # Si aucun match exact, essayer substring naive
+        if not matched:
+            keyword = user_query.lower()
+            matched = [a for a in sample_articles if keyword in (a.title or '').lower() or keyword in (a.summary or '').lower()]
+
+        return matched[:max_results] if matched else articles[:max_results]
+    except Exception as e:
+        print("LLM filtering error:", e)
+        # en cas d'erreur, fallback
+        return articles[:max_results]

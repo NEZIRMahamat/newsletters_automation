@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter IA – Multi-agents</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+        }
+
+        /* Header */
+        header {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h2 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .config-form {
+            display: contents;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Main content */
+        .main {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .main h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Articles Container */
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        /* Article Card */
+        .article-card {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .article-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .article-card h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+
+        .source {
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .date {
+            color: #888;
+            font-style: italic;
+        }
+
+        .short-summary {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        details {
+            margin-bottom: 12px;
+        }
+
+        summary {
+            cursor: pointer;
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: underline;
+            padding: 5px 0;
+        }
+
+        summary:hover {
+            color: #764ba2;
+        }
+
+        details p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .tag {
+            background: #e8eaf6;
+            color: #3f51b5;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Score */
+        .score {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .score-value {
+            display: block;
+            font-weight: 600;
+            color: #f57f17;
+            margin-bottom: 4px;
+        }
+
+        .score-details {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Link */
+        .read-more {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 12px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .read-more:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Loading & Error */
+        .htmx-request .htmx-indicator {
+            display: inline-block;
+        }
+
+        .htmx-indicator {
+            display: none;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #c62828;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>📰 Newsletter IA</h1>
+            <p>Configuration multi-agents en temps réel</p>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>⚙️ Configuration</h2>
+            <div hx-get="/ui/config" hx-trigger="load"></div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <h2>📚 Articles</h2>
+            <div hx-get="/ui/articles" hx-trigger="load"></div>
+        </main>
+    </div>
+
+    <script>
+        // Auto-refresh articles when config changes
+        document.body.addEventListener('htmx:afterSwap', function(event) {
+            if (event.detail.xhr.responseURL.includes('/ui/config')) {
+                htmx.ajax('GET', '/ui/articles', {
+                    target: '.main > div:last-child',
+                    swap: 'outerHTML'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

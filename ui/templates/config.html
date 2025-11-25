@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Newsletter - Multi-agents IA</title>
+    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .info-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .info-box strong {
+            color: #667eea;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #667eea;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .success {
+            background: #efe;
+            color: #3c3;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📰 Newsletter IA</h1>
+        <p class="subtitle">Configurez vos préférences de contenu</p>
+
+        <div class="info-box">
+            <strong>ℹ️ Info :</strong> Remplissez les paramètres ci-dessous et cliquez sur "Actualiser" pour voir les articles correspondants.
+        </div>
+
+        <div id="message"></div>
+
+        <form id="configForm">
+            <div class="form-group">
+                <label for="domain">🎯 Domaine d'intérêt *</label>
+                <input 
+                    type="text" 
+                    id="domain" 
+                    name="domain" 
+                    placeholder="Ex: IA Générale, Machine Learning, NLP, Computer Vision, etc."
+                    required
+                    value="IA Générale"
+                >
+                <small style="color: #999; display: block; margin-top: 5px;">
+                    Spécifiez le domaine que vous souhaitez suivre
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="num_articles">📊 Nombre d'articles (1-50) *</label>
+                <input 
+                    type="number" 
+                    id="num_articles" 
+                    name="num_articles" 
+                    min="1" 
+                    max="50" 
+                    required
+                    value="10"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="frequency">⏰ Fréquence de réception *</label>
+                <select id="frequency" name="frequency" required>
+                    <option value="daily">Quotidienne (chaque jour)</option>
+                    <option value="weekly" selected>Hebdomadaire (chaque semaine)</option>
+                    <option value="monthly">Mensuelle (chaque mois)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="use_llm">🔬 Filtrage sémantique (LLM)</label>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <input type="checkbox" id="use_llm" name="use_llm" checked>
+                    <small style="color:#666;">Activer le filtrage sémantique via LLM (Groq) pour une sélection plus pertinente.</small>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn-secondary" onclick="resetForm()">
+                    Réinitialiser
+                </button>
+                <button 
+                    type="button" 
+                    class="btn-primary" 
+                    onclick="submitConfig()"
+                    id="submitBtn"
+                >
+                    Actualiser →
+                </button>
+            </div>
+        </form>
+
+        <div class="loading" id="loading">
+            <span class="spinner"></span>
+            Chargement en cours...
+        </div>
+    </div>
+
+    <script>
+        function showMessage(message, type = 'success') {
+            const msgDiv = document.getElementById('message');
+            msgDiv.innerHTML = `<div class="${type}">${message}</div>`;
+            setTimeout(() => {
+                msgDiv.innerHTML = '';
+            }, 3000);
+        }
+
+        function resetForm() {
+            document.getElementById('configForm').reset();
+            document.getElementById('domain').value = 'IA Générale';
+            document.getElementById('num_articles').value = '10';
+            document.getElementById('frequency').value = 'weekly';
+        }
+
+        function submitConfig() {
+            const domain = document.getElementById('domain').value.trim();
+            const num_articles = parseInt(document.getElementById('num_articles').value);
+            const frequency = document.getElementById('frequency').value;
+            const use_llm = document.getElementById('use_llm').checked;
+
+            if (!domain) {
+                showMessage('⚠️ Veuillez entrer un domaine', 'error');
+                return;
+            }
+
+            if (num_articles < 1 || num_articles > 50) {
+                showMessage('⚠️ Le nombre d\'articles doit être entre 1 et 50', 'error');
+                return;
+            }
+
+            // Sauvegarder la config et rediriger
+            const loading = document.getElementById('loading');
+            const btn = document.getElementById('submitBtn');
+            
+            loading.classList.add('show');
+            btn.disabled = true;
+
+            // Envoyer la configuration
+            fetch(`/api/config?domain=${encodeURIComponent(domain)}&num_articles=${num_articles}&frequency=${frequency}&use_llm=${use_llm}`, {
+                method: 'POST'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    // Rediriger vers la page newsletter
+                    window.location.href = '/newsletter';
+                } else {
+                    showMessage('❌ Erreur : ' + data.detail, 'error');
+                    loading.classList.remove('show');
+                    btn.disabled = false;
+                }
+            })
+            .catch(err => {
+                showMessage('❌ Erreur serveur : ' + err.message, 'error');
+                loading.classList.remove('show');
+                btn.disabled = false;
+            });
+        }
+
+        // Permettre le submit avec Entrée
+        document.getElementById('configForm').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                submitConfig();
+            }
+        });
+    </script>
+</body>
+</html>
