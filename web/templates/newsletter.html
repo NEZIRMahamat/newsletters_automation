@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Newsletter Automation</h1>
+
+<button 
+    hx-post="/run"
+    hx-target="#results"
+    hx-indicator="#loading">
+    Run Newsletter Generation
+</button>
+
+<div id="loading" class="htmx-indicator">
+    Loading...
+</div>
+
+<div id="results"></div>
+{% endblock %}
