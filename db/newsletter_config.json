@@ -1,9 +1,9 @@
 {
   "default": {
-    "domain": "IA",
+    "domain": "IA G\u00e9n\u00e9rale",
     "num_articles": 10,
     "frequency": "weekly",
     "last_sent": null,
-    "use_llm": true
+    "use_llm": false
   }
 }

@@ -17,7 +17,7 @@ DEFAULT_CONFIG = {
     "num_articles": 10,
     "frequency": "weekly",  # "daily", "weekly", "monthly"
     "last_sent": None,
-    "use_llm": True,
+    "use_llm": False,
 }
 
 
