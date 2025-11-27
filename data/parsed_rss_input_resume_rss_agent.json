@@ -1,0 +1,37 @@
+[
+  {
+    "domain": {
+      "label": "Label du domaine",
+      "elements": [
+        {
+          "title": "tittre de l'élement",
+          "link": "lien",
+          "dates": [
+            {
+              "published": "datetime | NULL",
+              "updated": "datetime | NULL",
+              "created": "datetime | NULL"
+            }
+          ],
+          "authors": [],
+          "summary": "Résumé de l'article depuis le flux RSS | NULL",
+          "content": "Contenu de l'article depuis le flux RSS | NULL"
+        },
+        {
+          "element_2": "...... "
+        },
+        {
+          "element_n": "...... "
+        }
+      ]
+    },
+    "domain_2": {
+      "label": "Label du domaine 2",
+      "elements": [{"element_": "...... ", "element_n": "...... "}]
+    },
+    "domain_n": {
+      "label": "Label du domaine n",
+      "elements": [{"element_": "...... ", "element_n": "...... "}]
+    }
+  }
+]

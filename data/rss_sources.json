@@ -1,0 +1,114 @@
+[
+  {
+    "ia_generale": [
+      "https://export.arxiv.org/rss/cs.AI",
+      "https://export.arxiv.org/rss/cs.LG",
+      "https://feeds.feedburner.com/venturebeat/SZYF",
+      "https://www.lemondeinformatique.fr/flux-rss/thematique/ia/",
+      "https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml",
+      "https://www.actuia.com/feed/",
+      "https://www.technologyreview.com/feed/",
+      "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
+      "https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml",
+      "https://www.01net.com/feed/",
+      "https://openai.com/blog/rss.xml",
+      "https://ai.googleblog.com/atom.xml",
+      "https://aws.amazon.com/blogs/machine-learning/feed/",
+      "https://meta.ai/blog/rss/",
+      "https://stability.ai/blog?format=rss",
+      "https://huggingface.co/blog/feed.xml",
+      "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+      "https://rss.nytimes.com/services/xml/rss/nyt/ArtificialIntelligence.xml",
+      "https://www.semianalysis.com/feed",
+      "https://www.nvidia.com/en-us/research/feed/"
+    ],
+    "ml": [
+      "https://export.arxiv.org/rss/cs.LG",
+      "https://export.arxiv.org/rss/stat.ML",
+      "https://machinelearningmastery.com/blog/feed/",
+      "https://www.datasciencecentral.com/main/feed",
+      "https://www.kdnuggets.com/feed"
+    ],
+    "nlp": [
+      "https://export.arxiv.org/rss/cs.CL",
+      "https://nlp.stanford.edu/rss.xml",
+      "https://towardsdatascience.com/tagged/nlp/rss"
+    ],
+    "computer_vision": [
+      "https://export.arxiv.org/rss/cs.CV",
+      "https://www.computervision.news/rss.xml",
+      "https://www.analyticsvidhya.com/blog/category/computer-vision/feed/"
+    ],
+    "robotique": [
+      "https://export.arxiv.org/rss/cs.RO",
+      "https://spectrum.ieee.org/rss/robotics/fulltext",
+      "https://www.roboticsbusinessreview.com/feed/"
+    ],
+    "security": [
+      "https://export.arxiv.org/rss/cs.CR",
+      "https://www.zdnet.com/topic/security/rss.xml",
+      "https://www.lemondeinformatique.fr/flux-rss/thematique/securite/",
+      "https://www.securityweek.com/rss"
+    ],
+    "data_science": [
+      "https://export.arxiv.org/rss/cs.LG",
+      "https://export.arxiv.org/rss/stat.ML",
+      "https://www.datasciencecentral.com/main/feed",
+      "https://www.kdnuggets.com/feed",
+      "https://www.analyticsvidhya.com/blog/feed/"
+    ],
+    "business": [
+      "https://www.lesechos.fr/rss/rss_tech.xml",
+      "https://www.forbes.com/technology/feed/",
+      "https://www.bloomberg.com/feed/podcast/etf-report.xml",
+      "https://www.businessinsider.fr/rss"
+    ],
+    "mode": [
+      "https://www.vogue.fr/rss.xml",
+      "https://www.elle.fr/Mode/Mode-Actu/rss",
+      "https://www.fashionnetwork.com/rss_fr/news.xml",
+      "https://www.lofficiel.com/rss.xml",
+      "https://www.vogue.com/rss",
+      "https://www.businessoffashion.com/rss",
+      "https://www.wwd.com/feed/",
+      "https://fashionista.com/feed"
+    ],
+    "actualites": [
+      "https://www.lemonde.fr/rss/une.xml",
+      "https://www.lemonde.fr/sciences/rss_full.xml",
+      "https://www.lemonde.fr/culture/rss_full.xml",
+      "https://www.lemonde.fr/etats-unis/rss_full.xml",
+      "https://www.lemonde.fr/biologie/rss_full.xml",
+      "http://feeds.bbci.co.uk/news/rss.xml",
+      "http://rss.cnn.com/rss/edition.rss",
+      "https://www.france24.com/fr/actualites/rss",
+      "https://www.reuters.com/news/world/rss",
+      "https://www.francetvinfo.fr/titres.rss",
+      "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+    ],
+    "tech": [
+      "https://www.clubic.com/feed/news.rss",
+      "https://www.zdnet.fr/feeds/rss/zdnet_rss.xml",
+      "https://www.01net.com/feed/",
+      "https://www.theverge.com/rss/index.xml",
+      "https://www.wired.com/feed/rss"
+    ],
+    "jeux_video": [
+      "https://www.jeuxvideo.com/rss/rss.xml",
+      "https://www.ign.com/rss",
+      "https://kotaku.com/rss",
+      "https://www.pcgamer.com/rss/"
+    ],
+    "politique": [
+      "https://www.lemonde.fr/politique/rss_full.xml",
+      "https://www.france24.com/fr/politique/rss",
+      "https://www.reuters.com/politics/rss"
+    ],
+    "international": [
+      "https://www.theguardian.com/world/rss",
+      "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "https://www.france24.com/fr/monde/rss",
+      "https://www.reuters.com/world/rss"
+    ]
+  }
+]

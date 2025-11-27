@@ -1,0 +1,93 @@
+[
+    {
+        "ia_generale": {
+            "domain_label": "Intelligence Artificielle Théorique",
+            "elements": [
+                {
+                    "title": "titre de l'article",
+                    "link": "lien vers la source de l'article. (la page de l'article)",
+                    "tags": [
+                        "tags dans l'article",
+                        "extrait par le LLM",
+                        "tag2",
+                        "..."
+                    ],
+                    "generated_summary": "resumé de l'article régénéré par le LLM, en combinant le résumé fourni dans le flux RSS et le contenu complet de l'article.",
+                    "dates_element": [
+                        {
+                            "date_published": "date de publication de l'article au format ISO 8601., si disponible.",
+                            "date_updated": "date de la dernière mise à jour de l'article au format ISO 8601., si disponible.",
+                            "date_created": "date de création de l'article au format ISO 8601., si disponible."
+                        }
+                    ],
+                    "authors": [
+                        "auteur 1",
+                        "auteur 2",
+                        "..."
+                    ],
+                    "score_relevance": "un score de pertinence entre 0 et 1, indiquant à quel point l'article est pertinent pour la catégorie spécifiée.",
+                    "audience_level": "un niveau d'audience entre 1 et 5, où 1 est pour les débutants et 5 pour les experts, indiquant le niveau de compréhension requis pour l'article."
+                },
+                {
+                    "title": "Leibniz's Monadology as Foundation for the Artificial Age Score: A Formal Architecture for Al Memory Evaluation",
+                    "link": "https://arxiv.org/abs/2511.17541",
+                    "tags": [
+                        "AI memory",
+                        "Leibniz",
+                        "Monadology",
+                        "Artificial Age Score",
+                        "information theory",
+                        "memory evaluation"
+                    ],
+                    "generated_summary": "Ce travail propose un cadre rigoureux, à la fois mathématique et philosophique, pour évaluer les systèmes de mémoire artificielle en s’appuyant sur la monadologie de Leibniz. En introduisant le score d’âge artificiel (AAS), l’étude cartographie vingt propositions majeures de la monadologie vers une architecture informationnelle, où chaque monade est modélisée par un score de vérité, un paramètre de redondance et une contribution pondérée à une fonction de pénalité globale. Les transformations logarithmiques lisses permettent de quantifier l’âgisme, la stabilité et la salience de la mémoire. Les principes logiques classiques sont reformulés comme contraintes d’optimisation, garantissant la cohérence et la robustesse du modèle. Le résultat est un outil interprétable, modulaire et théoriquement fondé pour concevoir des mémoires d’IA fiables et explicables.",
+                    "dates_element": [
+                        {
+                            "date_published": "2025-11-25T00:00:00-05:00",
+                            "date_updated": "2025-11-25T00:00:00-05:00",
+                            "date_created": null
+                        }
+                    ],
+                    "authors": [
+                        "Seyma Yaman Kayadibi"
+                    ],
+                    "score_relevance": 0.92,
+                    "audience_level": 5
+                }
+            ]
+        }
+    },
+    {
+        "nlp": {
+            "domain_label": "Architecture Générative et GAN",
+            "elements": [
+                {
+                    "title": "Fluid Grey 2: How Well Does Generative Adversarial Network Learn Deeper Topology Structure in Architecture That Matches Images?",
+                    "link": "https://arxiv.org/abs/2511.17643",
+                    "tags": [
+                        "GAN",
+                        "pix2pix",
+                        "topology",
+                        "architecture",
+                        "image generation",
+                        "Grasshopper",
+                        "urban renewal"
+                    ],
+                    "generated_summary": "L’article explore la capacité des réseaux antagonistes génératifs (GAN), notamment pix2pix, à apprendre et reproduire les relations topologiques spatiales essentielles à la conception architecturale. En introduisant deux modules de détection basés sur Grasshopper avant et après le GAN, les auteurs démontrent que le modèle peut autonomement identifier les structures topologiques et les appliquer à des images architecturales. L’étude présente des données quantitatives, visualise le processus d’apprentissage et examine l’impact des modes d’entrée (niveaux de gris vs RGB) sur l’efficacité. Cette approche ouvre la voie à des outils simples et rapides pour la création et l’analyse de jeux d’images partageant la même topologie, soutenant ainsi la rénovation urbaine et la conception architecturale guidée par l’IA.",
+                    "dates_element": [
+                        {
+                            "date_published": "2025-11-25T00:00:00-05:00",
+                            "date_updated": "2025-11-25T00:00:00-05:00",
+                            "date_created": null
+                        }
+                    ],
+                    "authors": [
+                        "Yayan Qiu",
+                        "Sean Hanna"
+                    ],
+                    "score_relevance": 0.88,
+                    "audience_level": 4
+                }
+            ]
+        }
+    }
+]
