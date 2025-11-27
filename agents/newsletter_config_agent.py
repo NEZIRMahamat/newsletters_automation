@@ -104,7 +104,8 @@ class NewsletterConfigAgent:
                 enriched_article = enrich_article_with_groq(art)
                 enriched.append(enriched_article)
             except Exception as e:
-                print(f"Erreur lors de l'enrichissement de {art.title}: {e}")
+                print(f"⚠️ Erreur enrichissement '{art.title[:50]}...': {str(e)[:100]}")
+                # Continuer avec les autres articles au lieu de tout arrêter
         
         return enriched
     

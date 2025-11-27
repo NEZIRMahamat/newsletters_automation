@@ -99,8 +99,18 @@ RSS_SOURCES = [
 ]
 
 
-def fetch_rss(url: str) -> List[ArticleBrut]:
-    feed = feedparser.parse(url)
+def fetch_rss(url: str, timeout: int = 10) -> List[ArticleBrut]:
+    try:
+        # Parse with timeout to avoid hanging
+        import socket
+        original_timeout = socket.getdefaulttimeout()
+        socket.setdefaulttimeout(timeout)
+        feed = feedparser.parse(url)
+        socket.setdefaulttimeout(original_timeout)
+    except Exception as e:
+        print(f"Timeout/error fetching {url}: {e}")
+        return []
+    
     articles: List[ArticleBrut] = []
 
     for entry in feed.entries:
@@ -154,7 +164,7 @@ def fetch_all_articles(domain: Optional[str] = None, limit: int = 50) -> List[Ar
         sources = RSS_SOURCES_BY_DOMAIN[domain]
         for url in sources:
             try:
-                articles = fetch_rss(url)
+                articles = fetch_rss(url, timeout=10)
                 all_articles.extend(articles)
             except Exception as e:
                 print(f"Erreur lors de la récupération du flux {url}: {e}")
@@ -170,7 +180,7 @@ def fetch_all_articles(domain: Optional[str] = None, limit: int = 50) -> List[Ar
     sources = RSS_SOURCES
     for url in sources:
         try:
-            articles = fetch_rss(url)
+            articles = fetch_rss(url, timeout=10)
             all_articles.extend(articles)
         except Exception as e:
             print(f"Erreur lors de la récupération du flux {url}: {e}")

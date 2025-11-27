@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from typing import List, Optional
+import hashlib
+import os
 
 from agents.rss_reader import fetch_all_articles, ArticleBrut, AVAILABLE_DOMAINS
 from agents.llm_groq import enrich_article_with_groq, ArticleEnrichi
@@ -200,6 +202,41 @@ def debug_articles(domain: Optional[str] = None):
             response["llm_error"] = str(e)
 
     return response
+
+
+@app.get("/api/newsletter-audio")
+def get_newsletter_audio(enrich: bool = True):
+    """
+    Génère et retourne l'audio TTS résumant toutes les actualités (3-5 min).
+    """
+    from agents.tts_agent import generate_newsletter_audio_summary
+    
+    # Récupérer les articles
+    agent = NewsletterConfigAgent(CURRENT_USER_ID)
+    articles = agent.get_articles(enrich=enrich)
+    
+    if not articles:
+        raise HTTPException(status_code=404, detail="Aucun article disponible")
+    
+    # Générer hash unique basé sur la config et le nombre d'articles
+    config = agent.get_config()
+    newsletter_hash = hashlib.md5(f"{config.domain}{len(articles)}{config.num_articles}".encode()).hexdigest()[:12]
+    
+    audio_path = f"audio_cache/newsletter_{newsletter_hash}.mp3"
+    
+    # Vérifier si l'audio existe déjà en cache
+    if not os.path.exists(audio_path):
+        # Générer l'audio
+        result = generate_newsletter_audio_summary(articles, newsletter_hash)
+        if not result:
+            raise HTTPException(status_code=500, detail="Erreur lors de la génération audio. Vérifiez les clés PlayHT.")
+    
+    # Servir le fichier audio
+    return FileResponse(
+        audio_path,
+        media_type="audio/mpeg",
+        filename=f"newsletter_{newsletter_hash}.mp3"
+    )
 
 
 # ==================== Helper Functions ====================

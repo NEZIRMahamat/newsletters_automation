@@ -86,6 +86,47 @@
             gap: 15px;
         }
 
+        .audio-summary-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .audio-summary-section h2 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .btn-play-summary {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-play-summary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        #audio-player {
+            margin-top: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+
         .stats {
             font-size: 13px;
             color: #666;
@@ -246,10 +287,33 @@
             font-weight: 600;
             font-size: 13px;
             user-select: none;
+            -webkit-user-select: none;
         }
 
         summary:hover {
             text-decoration: underline;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin-left: 10px;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .audio-player {
+            display: none;
+            margin-top: 10px;
         }
 
         details[open] summary {
@@ -342,6 +406,17 @@
     </header>
 
     <div class="container">
+        <!-- Section Audio Résumé Global -->
+        <div class="audio-summary-section">
+            <h2>🎧 Résumé audio de toutes les actualités (3-5 min)</h2>
+            <button class="btn-play-summary" onclick="playNewsletterAudio()">
+                🔊 Écouter le résumé complet
+            </button>
+            <audio id="audio-player" controls style="display: none;">
+                Votre navigateur ne supporte pas l'audio HTML5.
+            </audio>
+        </div>
+
         <div class="controls">
             <div class="stats" id="stats">
                 Articles : --
@@ -366,6 +441,62 @@
     </div>
 
     <script>
+        // Fonction pour lire le résumé audio global de la newsletter
+        function playNewsletterAudio() {
+            const audioPlayer = document.getElementById('audio-player');
+            const btn = document.querySelector('.btn-play-summary');
+            
+            // Afficher le player
+            audioPlayer.style.display = 'block';
+            
+            // Désactiver le bouton pendant le chargement
+            btn.disabled = true;
+            btn.textContent = '⏳ Génération audio...';
+            
+            // Charger et jouer l'audio
+            fetch('/api/newsletter-audio')
+                .then(response => {
+                    if (!response.ok) throw new Error('Erreur audio');
+                    return response.blob();
+                })
+                .then(blob => {
+                    const audioUrl = URL.createObjectURL(blob);
+                    audioPlayer.src = audioUrl;
+                    audioPlayer.play();
+                    btn.disabled = false;
+                    btn.textContent = '🔊 Écouter le résumé complet';
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    alert('Erreur lors de la génération audio. Vérifiez vos clés PlayHT dans le .env');
+                    btn.disabled = false;
+                    btn.textContent = '🔊 Écouter le résumé complet';
+                    audioPlayer.style.display = 'none';
+                });
+        }
+
+        // Player audio global (obsolète, gardé pour compatibilité)
+        let currentAudio = null;
+
+        function playAudio(url) {
+            // Arrêter l'audio précédent s'il existe
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+
+            // Créer et jouer le nouvel audio
+            currentAudio = new Audio(url);
+            currentAudio.play().catch(err => {
+                console.error('Erreur lecture audio:', err);
+                alert('Erreur lors de la lecture audio. Vérifiez que PlayHT est configuré.');
+            });
+
+            currentAudio.onended = () => {
+                currentAudio = null;
+            };
+        }
+
         // Afficher les infos de la config dans le header
         fetch('/api/config')
             .then(res => res.json())

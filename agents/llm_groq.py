@@ -1,9 +1,11 @@
 import json
 from typing import List, Optional
 import difflib
+import time
 
 from pydantic import BaseModel, ValidationError
 from groq import Groq
+import httpx
 
 from config.settings import settings
 from agents.rss_reader import ArticleBrut
@@ -27,11 +29,18 @@ class ArticleEnrichi(BaseModel):
     score_details: str         # explication courte de la note
 
 
-# Client Groq global
-client = Groq(api_key=settings.groq_api_key)
+# Client Groq global avec timeout
+try:
+    client = Groq(
+        api_key=settings.groq_api_key,
+        timeout=httpx.Timeout(30.0, connect=10.0)
+    )
+except Exception as e:
+    print(f"Erreur initialisation client Groq: {e}")
+    client = None
 
 
-def enrich_article_with_groq(article: ArticleBrut) -> ArticleEnrichi:
+def enrich_article_with_groq(article: ArticleBrut, max_retries: int = 2) -> ArticleEnrichi:
     """
     Appelle Groq pour :
       - résumer l'article (court + long)
@@ -41,13 +50,17 @@ def enrich_article_with_groq(article: ArticleBrut) -> ArticleEnrichi:
       - calculer un score global de pertinence (0-100)
     Retourne un ArticleEnrichi.
     """
+    if not client or not settings.groq_api_key:
+        raise Exception("Client Groq non initialisé ou clé API manquante")
 
     # On construit le contexte texte qu'on envoie au modèle
     base_text = f"Titre: {article.title}\n\n"
     if article.summary:
         base_text += f"Résumé RSS: {article.summary}\n\n"
     if article.raw_content:
-        base_text += f"Contenu brut: {article.raw_content}\n\n"
+        # Limiter le contenu brut pour éviter les timeouts
+        content = article.raw_content[:2000] if len(article.raw_content) > 2000 else article.raw_content
+        base_text += f"Contenu brut: {content}\n\n"
 
     system_prompt = (
         "Tu es un assistant expert en intelligence artificielle. "
@@ -64,16 +77,30 @@ def enrich_article_with_groq(article: ArticleBrut) -> ArticleEnrichi:
         "IMPORTANT : réponds STRICTEMENT en JSON valide, sans texte avant ou après."
     )
 
-    # Appel Groq (modèle à jour)
-    completion = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",  # modèle recommandé chez Groq
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": base_text},
-        ],
-        response_format={"type": "json_object"},
-        temperature=0.2,
-    )
+    # Retry logic
+    last_error = None
+    for attempt in range(max_retries):
+        try:
+            # Appel Groq (modèle à jour)
+            completion = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": base_text},
+                ],
+                response_format={"type": "json_object"},
+                temperature=0.2,
+                timeout=30.0
+            )
+            break  # Si succès, sortir de la boucle
+        except Exception as e:
+            last_error = e
+            if attempt < max_retries - 1:
+                wait_time = (attempt + 1) * 2  # Backoff: 2s, 4s
+                print(f"Erreur Groq (tentative {attempt + 1}/{max_retries}): {e}. Retry dans {wait_time}s...")
+                time.sleep(wait_time)
+            else:
+                raise Exception(f"Échec après {max_retries} tentatives: {last_error}")
 
     raw_content = completion.choices[0].message.content
 

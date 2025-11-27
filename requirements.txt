@@ -10,3 +10,5 @@ apscheduler
 groq
 pandas
 streamlit
+httpx
+gtts
