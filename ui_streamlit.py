@@ -11,7 +11,14 @@ from app.core.config import (
     BLOG_HTML_PATH,
     EMAIL_DRAFT_PATH,
 )
-from app.core.user_config import load_user_config, save_user_config
+from app.core.user_config import (
+    load_user_config, 
+    save_user_config,
+    load_contacts_from_csv,
+    add_contact_to_csv,
+    remove_contact_from_csv,
+    get_all_emails_from_csv
+)
 from app.core.theme_detector import detect_themes
 from app.core.logging_utils import LOG_FILE
 
@@ -54,61 +61,88 @@ config["heure_generation"] = f"{heure.hour:02d}:{heure.minute:02d}"
 
 
 # --------------------------------------
-# 📧 Emails destinataires
+# 📧 Emails destinataires (CSV)
 # --------------------------------------
 st.sidebar.subheader("📧 Destinataires des emails")
 
-new_mail = st.sidebar.text_input("Ajouter un email")
-if st.sidebar.button("➕ Ajouter email"):
-    if new_mail and new_mail not in config["emails_destinataires"]:
-        config["emails_destinataires"].append(new_mail)
+col_email, col_nom = st.sidebar.columns([3, 2])
+new_mail = col_email.text_input("Email", key="new_email")
+new_nom = col_nom.text_input("Nom", key="new_nom")
 
-# Liste emails
-for mail in list(config["emails_destinataires"]):
-    col1, col2 = st.sidebar.columns([4, 1])
-    col1.write(mail)
-    if col2.button("❌", key=f"del_{mail}"):
-        config["emails_destinataires"].remove(mail)
-
-
-# --------------------------------------
-# 📨 TEST EMAIL VIA GMAIL API
-# --------------------------------------
-st.sidebar.subheader("📬 Tester l’envoi d’un email")
-
-test_mail = st.sidebar.text_input("Email de test")
-
-if st.sidebar.button("📨 Envoyer email test"):
-    if not test_mail:
-        st.sidebar.error("Saisis un email valide.")
+if st.sidebar.button("➕ Ajouter contact"):
+    if new_mail:
+        if add_contact_to_csv(new_mail, new_nom):
+            st.sidebar.success(f"✅ {new_mail} ajouté !")
+            st.rerun()
+        else:
+            st.sidebar.warning("⚠️ Email déjà existant")
     else:
-        try:
-            # Construction message test
-            from email.mime.text import MIMEText
-            from email.mime.multipart import MIMEMultipart
-            from app.agents.agent_6_email import gmail_service, EMAIL_SENDER
-            import base64
+        st.sidebar.error("❌ Email requis")
 
-            msg = MIMEMultipart("alternative")
-            msg["to"] = test_mail
-            msg["from"] = EMAIL_SENDER
-            msg["subject"] = "Test Gmail API – Flash AI"
-            msg.attach(MIMEText("Ceci est un test via Gmail API.", "plain", "utf-8"))
+# Liste des contacts
+contacts = load_contacts_from_csv()
+if contacts:
+    st.sidebar.write(f"**{len(contacts)} contact(s) :**")
+    for contact in contacts:
+        col1, col2 = st.sidebar.columns([4, 1])
+        display = f"{contact['email']} ({contact['nom']})" if contact['nom'] else contact['email']
+        col1.write(display)
+        if col2.button("❌", key=f"del_{contact['email']}"):
+            remove_contact_from_csv(contact['email'])
+            st.rerun()
+else:
+    st.sidebar.info("Aucun contact ajouté")
 
-            raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
 
-            gmail_service().users().messages().send(
-                userId="me", body={"raw": raw}
-            ).execute()
+# --------------------------------------
+# 📬 ENVOYER NEWSLETTER À UN CONTACT
+# --------------------------------------
+st.sidebar.subheader("📬 Envoyer la Newsletter")
 
-            st.sidebar.success("✅ Email envoyé via Gmail API !")
+# Liste déroulante des contacts
+emails_list = get_all_emails_from_csv()
 
-        except Exception as e:
-            st.sidebar.error(f"❌ Erreur Gmail API : {e}")
+if emails_list:
+    selected_email = st.sidebar.selectbox(
+        "Choisir un destinataire",
+        options=emails_list,
+        key="selected_email_newsletter"
+    )
+    
+    if st.sidebar.button("📨 Envoyer Newsletter"):
+        # Vérifier que la newsletter existe
+        if not NEWSLETTER_HTML_PATH.exists():
+            st.sidebar.error("❌ Newsletter non générée. Génère d'abord la veille.")
+        else:
+            try:
+                from app.agents.agent_6_email import send_email_smtp2go
+                
+                # Charger le contenu HTML de la newsletter
+                newsletter_html = NEWSLETTER_HTML_PATH.read_text(encoding="utf-8")
+                
+                # Envoyer via SMTP2GO
+                success = send_email_smtp2go(
+                    to_email=selected_email,
+                    subject="🔥 Flash AI – Top 3 IA de la semaine",
+                    html_content=newsletter_html,
+                    text_content="Newsletter Flash AI - Consultez votre email en HTML"
+                )
+                
+                if success:
+                    st.sidebar.success(f"✅ Newsletter envoyée à {selected_email}")
+                else:
+                    st.sidebar.error("❌ Erreur lors de l'envoi")
+                    
+            except Exception as e:
+                st.sidebar.error(f"❌ Erreur : {e}")
+else:
+    st.sidebar.info("Ajoute d'abord des contacts pour envoyer la newsletter")
 
 
 # --------------------------------------
 # 🧠 Détection thème IA
+# --------------------------------------
+st.sidebar.subheader("🧠 Détection automatique des thèmes")
 # --------------------------------------
 st.sidebar.subheader("🧠 Détection automatique des thèmes")
 
