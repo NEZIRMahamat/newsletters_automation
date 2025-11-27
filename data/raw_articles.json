@@ -540,6 +540,24 @@
     "hash": "d1301a903cafc643ba9d9822c4886ad1"
   },
   {
+    "titre": "China’s Alibaba giant enters the smart glasses race with removable batteries",
+    "resume": "Chinese tech giant Alibaba entered the AI-powered smart glasses race on Thursday with the release of its Quark headsets in China. Notably, the batteries can be swapped out for all day usage unlike competitors.&#160; Alibaba said the Quark AI glasses come in two variants, the S1 flagship and the “lifestyle-focused” G1, in multiple colors and [&#8230;]",
+    "url": "https://www.theverge.com/news/831354/alibaba-quark-smart-glasses",
+    "source": "RSS IA",
+    "image": null,
+    "theme": "intelligence artificielle",
+    "hash": "a715add49a497387726099be1b41c8c7"
+  },
+  {
+    "titre": "My AI shopping assistants are stuck in the past",
+    "resume": "All I wanted was a new smartwatch. I had a couple in mind, like the Google Pixel Watch 4 or the Garmin Vivoactive 6, but my AI shopping buddies seemed really convinced watches from a couple years ago were the way to go. Over the past month, OpenAI, Google, Perplexity, and Microsoft have all introduced [&#8230;]",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/830450/ai-shopping-assistants-are-stuck-in-the-past",
+    "source": "RSS IA",
+    "image": null,
+    "theme": "intelligence artificielle",
+    "hash": "10c7697e10ca2efdaf0332fa353aad06"
+  },
+  {
     "titre": "OpenAI denies liability in teen suicide lawsuit, cites ‘misuse’ of ChatGPT",
     "resume": "OpenAI’s response to a lawsuit by the family of Adam Raine, a 16-year-old who took his own life after discussing it with ChatGPT for months, said the injuries in this “tragic event” happened as a result of Raine’s “misuse, unauthorized use, unintended use, unforeseeable use, and/or improper use of ChatGPT.” NBC News reports the filing [&#8230;]",
     "url": "https://www.theverge.com/news/831207/openai-chatgpt-lawsuit-parental-controls-tos",
@@ -612,22 +630,22 @@
     "hash": "7937e6df34e2bc9880f05ca86903f5d2"
   },
   {
-    "titre": "ChatGPT shopping research builds you a buyer&#8217;s guide using AI",
-    "resume": "OpenAI is making it easier to plan out holiday shopping with ChatGPT’s latest feature, called “shopping research.” Any shopping question in ChatGPT will trigger this new feature, which is rolling out to all ChatGPT users on free and paid plans on mobile and web, with “nearly unlimited usage” available during the holiday shopping season. Now, [&#8230;]",
-    "url": "https://www.theverge.com/news/828326/chatgpt-shopping-research-chatgpt-buyers-guide",
+    "titre": "This year’s UN climate talks avoided fossil fuels, again",
+    "resume": "If we didn’t have pictures and videos, I almost wouldn’t believe the imagery that came out of this year’s UN climate talks. Over the past few weeks in Belem, Brazil, attendees dealt with oppressive heat and flooding, and at one point a literal fire broke out, delaying negotiations. The symbolism was almost too much to&#8230;",
+    "url": "https://www.technologyreview.com/2025/11/27/1128443/climate-talks-fossil-fuels/",
     "source": "RSS IA",
     "image": null,
     "theme": "intelligence artificielle",
-    "hash": "a621fef683c9d9d4441fc15183021592"
+    "hash": "2d47615f531e407f374c4c65ed295e22"
   },
   {
-    "titre": "Nvidia’s ‘I’m Not Enron’ memo has people asking a lot of questions already answered by that memo",
-    "resume": "Christ. Fine. So over the weekend, a strange Substack post from what appears to be a CEO of a pet relocation company went very viral. This post — which to be clear, is bullshit — alleges that Nvidia is engaged in what “may become the largest accounting fraud in technology history.” That’s a load-bearing “may,” [&#8230;]",
-    "url": "https://www.theverge.com/business/828047/nvidia-enron-conspiracy-accounting",
+    "titre": "Moving toward LessOps with VMware-to-cloud migrations",
+    "resume": "Today’s IT leaders face competing mandates to do more (“make us an ‘AI-first’ enterprise—yesterday”) with less (“no new hires for at least the next six months”). VMware has become a focal point of these dueling directives. It remains central to enterprise IT, with 80% of organizations using VMware infrastructure products. But shifting licensing models are&#8230;",
+    "url": "https://www.technologyreview.com/2025/11/27/1128465/moving-toward-lessops-with-vmware-to-cloud-migrations/",
     "source": "RSS IA",
     "image": null,
     "theme": "intelligence artificielle",
-    "hash": "523219de05367f6075c810df6dc40743"
+    "hash": "9f8921f7484b5220deb9ee932ab962a3"
   },
   {
     "titre": "The Download: AI and the economy, and slop for the masses",
@@ -700,24 +718,6 @@
     "image": null,
     "theme": "intelligence artificielle",
     "hash": "9110105dadb52b03c8723047bddcac6a"
-  },
-  {
-    "titre": "We’re learning more about what vitamin D does to our bodies",
-    "resume": "It has started to get really wintry here in London over the last few days. The mornings are frosty, the wind is biting, and it’s already dark by the time I pick my kids up from school. The darkness in particular has got me thinking about vitamin D, a.k.a. the sunshine vitamin. At a checkup&#8230;",
-    "url": "https://www.technologyreview.com/2025/11/21/1128206/vitamin-d-bodies-bone-health-immune/",
-    "source": "RSS IA",
-    "image": null,
-    "theme": "intelligence artificielle",
-    "hash": "fec18005ac693a56a8e906a56cb86df0"
-  },
-  {
-    "titre": "Roundtables: Surviving the New Age of Conspiracies",
-    "resume": "Everything is a conspiracy theory now. MIT Technology Review’s series, “The New Conspiracy Age,” explores how this moment is changing science and technology. Watch a discussion with our editors and Mike Rothschild, journalist and conspiracy theory expert, about how we can make sense of them all. Speakers: Amanda Silverman, Editor, Features &#38; Investigations; Niall Firth,&#8230;",
-    "url": "https://www.technologyreview.com/2025/11/20/1127749/roundtables-surviving-the-new-age-of-conspiracies/",
-    "source": "RSS IA",
-    "image": null,
-    "theme": "intelligence artificielle",
-    "hash": "664f714a3baefece52c7945861a242cf"
   },
   {
     "titre": "xAI’s Colossus 2 – First Gigawatt Datacenter In The World, Unique RL Methodology, Capital Raise",
@@ -810,183 +810,174 @@
     "hash": "9f42602799fd5b00654f06c4e8d83fa1"
   },
   {
-    "titre": "I used the POCO F8 Ultra for two weeks, and I have just one question: Why would you buy any other phone? This is one of the fastest phones around, and you get a great camera, battery life, and unbeatable value",
-    "resume": "With the F8 Ultra, POCO is signaling its intent to go up against the best Android phones. And you know what? The phone manages to hold its own against Google and Samsung's latest devices.",
-    "url": "https://www.androidcentral.com/phones/xiaomi/poco-f8-ultra-review",
-    "source": "Android Central",
-    "image": "https://cdn.mos.cms.futurecdn.net/tibyuqsUffTuQHLNFiDn5P-2560-80.jpg",
+    "titre": "As AI Stocks Like Nvidia Get Rattled, This Behind-The-Scenes Data Center Play Heats Up",
+    "resume": ", Palantir Technologies (PLTR), Microsoft (MSFT) and other bellwether forces behind the artificial intelligence boom stumble, Alphabet (GOOGL) shows the AI train may still have legs. Meanwhile, SPX Technologies (SPXC) — an HVAC leader helping keep power-hungr…",
+    "url": "https://biztoc.com/x/1cd6b63a63e4f232",
+    "source": "Biztoc.com",
+    "image": "https://biztoc.com/cdn/1cd6b63a63e4f232_s.webp",
     "theme": "intelligence artificielle",
-    "hash": "3a40550177d719304fa8757668e86efb"
+    "hash": "213123e6c4240b5e1dcc2fc19feba44e"
   },
   {
-    "titre": "Anthropic Introduces Opus 4.5 : Handles Agent Tasks & Heavy Engineering with Higher Accuracy",
-    "resume": "What if the tools you rely on could think faster, adapt smarter, and solve problems with unprecedented precision? Enter Claude Opus 4.5, the latest breakthrough in artificial intelligence from Anthropic. This isn’t just another AI upgrade, it’s a model design…",
-    "url": "https://www.geeky-gadgets.com/claude-opus-45-overview/",
+    "titre": "AI data center 'frenzy' is pushing up your electric bill — here's why",
+    "resume": "The data centers that power the artificial intelligence revolution are driving up electricity prices for households — and price relief may not be coming anytime soon, according to energy experts.\nResidential retail electricity prices in September were up 7.4%…",
+    "url": "https://biztoc.com/x/d2d2bb3e55d988bc",
+    "source": "Biztoc.com",
+    "image": "https://biztoc.com/cdn/d2d2bb3e55d988bc_s.webp",
+    "theme": "intelligence artificielle",
+    "hash": "8708287be8c0be1d70b8a800c9071024"
+  },
+  {
+    "titre": "Trillion-Dollar Losses Pile Up For AI And Bitcoin Investors",
+    "resume": "A trillion lost here and a trillion lost there is starting to really add up for investors in speculative ETFs in AI and cryptocurrency.\nThe value of AI stocks in the Global X Artificial Intelligence & Technology ETF (AIG) has plunged $1.4 trillion just this m…",
+    "url": "https://biztoc.com/x/3be1793140a1c12f",
+    "source": "Biztoc.com",
+    "image": "https://biztoc.com/cdn/3be1793140a1c12f_s.webp",
+    "theme": "intelligence artificielle",
+    "hash": "188c8292e243a6021d62d18d58b54d33"
+  },
+  {
+    "titre": "Nvidia’s stock sinks as AI dominance doubts grow",
+    "resume": "Nvidia is facing rising concerns that its stranglehold on the market for semiconductors used in AI computing is slipping. Read more.",
+    "url": "https://financialpost.com/investing/nvidias-stock-ai-dominance",
+    "source": "Financial Post",
+    "image": "https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2025/11/1127-bc-nvidia-1.jpg",
+    "theme": "intelligence artificielle",
+    "hash": "0dcc2bba8a20e2c926dece642dca2339"
+  },
+  {
+    "titre": "World's central banks are wary of AI and struggling to quit the dollar, survey shows",
+    "resume": "By Libby George\nLONDON (Reuters) -Artificial Intelligence is not a core part of operations at most of the world's central banks and digital assets are off the table, according to a survey released on Wednesday by the Official Monetary and Financial Institutio…",
+    "url": "https://biztoc.com/x/ad8de81b2d614106",
+    "source": "Biztoc.com",
+    "image": "https://biztoc.com/cdn/ad8de81b2d614106_s.webp",
+    "theme": "intelligence artificielle",
+    "hash": "3cba4bdb3336e1aa52229169b62b796e"
+  },
+  {
+    "titre": "Solo Leveling Is Officially Changing The Industry Again",
+    "resume": "Netflix's plans for Solo Leveling reflect a major industry shift, and the anime-to-flagship-property pipeline may never be the same again.",
+    "url": "https://screenrant.com/solo-leveling-live-action-adaptation-changing-anime-industry/",
+    "source": "Screen Rant",
+    "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2025/11/sung-jinwoo-surrounded-by-fire-in-the-solo-leveling-anime.jpg?w=1600&h=900&fit=crop",
+    "theme": "intelligence artificielle",
+    "hash": "b825e3aeb6d6f869f21c328de6e41193"
+  },
+  {
+    "titre": "AI data center 'frenzy' is pushing up your electric bill — here's why",
+    "resume": "Energy-hungry data centers that underpin artificial intelligence are contributing to higher residential electricity bills, say experts.",
+    "url": "https://www.cnbc.com/2025/11/26/ai-data-center-frenzy-is-pushing-up-your-electric-bill-heres-why.html",
+    "source": "CNBC",
+    "image": "https://image.cnbcfm.com/api/v1/image/108229968-1763739290840-gettyimages-2236733569-STARGATE_DATA_CENTER.jpeg?v=1763739314&w=1920&h=1080",
+    "theme": "intelligence artificielle",
+    "hash": "5b8f43c1eaba2120e1f99d913f139892"
+  },
+  {
+    "titre": "Nobel Prize-winning economist drops grim warning for Trump about 'broader recession'",
+    "resume": "Donald Trump's tariff policy has been ridiculed by a Nobel Prize winner who says the administration is \"depressing the economy\". Trump introduced tariffs earlier this year, hiking prices on importing and exporting goods across the world. American economist Pa…",
+    "url": "https://www.rawstory.com/trump-economy-2674344211/",
+    "source": "Raw Story",
+    "image": "https://www.rawstory.com/media-library/u-s-president-donald-trump-speaks-to-the-media-before-boarding-marine-one-upon-departure-for-new-york-in-washington-d-c-u-s.jpg?id=61737853&width=1200&height=600&coordinates=0%2C542%2C0%2C543",
+    "theme": "intelligence artificielle",
+    "hash": "f86b7ad47f966ff8218f485e60347222"
+  },
+  {
+    "titre": "Open Letter Pushing an Artificial Superintelligence (ASI) Halt : Why Its a Big Deal",
+    "resume": "What if the greatest minds in science and technology just told us to stop? Imagine a world where the relentless march of innovation is suddenly paused, not by lack of progress, but by a collective decision to safeguard humanity’s future. That’s exactly what h…",
+    "url": "https://www.geeky-gadgets.com/agi-ban-open-letter-2025-global-debate/",
     "source": "Geeky Gadgets",
-    "image": "https://www.geeky-gadgets.com/wp-content/uploads/2025/11/img-61-opus-45-engineering-benchmarks_optimized.jpg",
+    "image": "https://www.geeky-gadgets.com/wp-content/uploads/2025/11/agi-vs-asi-levels-diagram-explained_optimized.jpg",
     "theme": "intelligence artificielle",
-    "hash": "798128c1fec64979405beac8e733ceee"
+    "hash": "1a35c45f481397cf0c5d53cabe578336"
   },
   {
-    "titre": "Swiggy customer uses AI to fake damaged eggs, secures refund; viral post sparks trust debate: ‘We can never be a developed nation’",
-    "resume": "The X post described how someone had ordered a tray of eggs through Instamart. One egg arrived cracked. Instead of simply reporting the issue, the customer decided to take it several steps further.",
-    "url": "https://indianexpress.com/article/trending/trending-in-india/swiggy-customer-uses-ai-to-fake-damaged-eggs-secures-refund-viral-post-sparks-debate-10387095/",
-    "source": "The Indian Express",
-    "image": "https://images.indianexpress.com/2025/11/Damaged-eggs-AI-swiggy.jpg",
+    "titre": "3I/ATLAS Nears Earth—Experts Claim Comet Is A Window To Galaxy's Past",
+    "resume": "Interstellar comet 3I/ATLAS is now within 300 million km of Earth. Discover why NASA and ESA are tracking this ancient visitor and how to view it before its closest approach in December 2025.",
+    "url": "https://www.ibtimes.com/3i-atlas-nears-earthexperts-claim-comet-window-galaxys-past-3791360",
+    "source": "International Business Times",
+    "image": "https://d.ibtimes.com/en/full/4630344/earths-august-5-rotation-shaved-off-over-millisecond.jpg",
     "theme": "intelligence artificielle",
-    "hash": "81ea7dfaede898a667b72ba2d2f8c00a"
+    "hash": "9d137a815b975c8e42872c1f1bae0882"
   },
   {
-    "titre": "Nasscom, IBM to train 87,000 underserved youth with future-ready digital skills",
-    "resume": "Nasscom Foundation has partnered with IBM to upskill over 87,000 marginalised youth across India through the IBM SkillsBuild programme. The initiative will offer free training in AI, cybersecurity, cloud, data analytics and professional skills, supported by m…",
-    "url": "https://economictimes.indiatimes.com/jobs/fresher/nasscom-ibm-to-train-87000-underserved-youth-with-future-ready-digital-skills/articleshow/125584970.cms",
-    "source": "The Times of India",
-    "image": "https://img.etimg.com/thumb/msid-125584987,width-1200,height-630,imgsize-10102,overlay-etcareers/articleshow.jpg",
+    "titre": "Alphabet hits record highs, Burry's AI concerns, Ukraine peace plan and more in Morning Squawk",
+    "resume": "Here are five key things investors need to know to start the trading day.",
+    "url": "https://www.cnbc.com/2025/11/26/5-things-to-know-before-the-stock-market-opens.html",
+    "source": "CNBC",
+    "image": "https://image.cnbcfm.com/api/v1/image/108228393-1763571154367-108228393-1763571095386-gettyimages-2246882074-US_SAUDI.jpg?v=1764162345&w=1920&h=1080",
     "theme": "intelligence artificielle",
-    "hash": "2d7c655fdbb62395620ca41f74ac1367"
+    "hash": "626163123fd8ad8626f375acbe2f2fb6"
   },
   {
-    "titre": "How to Use Softness and Glow for Dreamlike Photos",
-    "resume": "Dreamy-looking photos feel loose and imperfect, but they rely on deliberate choices about gear, light, and editing. If you want images that feel like actual dreams instead of another crisp, sharp frame from a city walk, this approach can shift how you shoot. …",
-    "url": "https://fstoppers.com/education/how-use-softness-and-glow-dreamlike-photos-718200",
-    "source": "Fstoppers",
-    "image": "https://cdn.fstoppers.com/styles/large-16-9/s3/lead/2025/11/how-to-shoot-and-edit-dreamy-photos---0-5-12.jpeg",
+    "titre": "Liberty Defense Commends Department of Homeland Security’s TSA Modernization Initiative",
+    "resume": "Modernization Plan Demonstrates the Growing Market Need for Advanced Screening Technologies Like Liberty Defense’s High-Definition Advance Imaging Technology (HDAIT) and HEXWAVE™ System WILMINGTON, Mass., Nov. 26, 2025 (GLOBE NEWSWIRE) — Liberty Defense Holdi…",
+    "url": "https://financialpost.com/globe-newswire/liberty-defense-commends-department-of-homeland-securitys-tsa-modernization-initiative",
+    "source": "Financial Post",
+    "image": null,
     "theme": "intelligence artificielle",
-    "hash": "1dbf11a139ce4e1081c9bcf6a052fc6e"
+    "hash": "320eb58025300e8a66cfd2989daa2276"
   },
   {
-    "titre": "Match facts: Rapid Vienna v Raków Częstochowa (Conference League)",
-    "resume": "On Thursday, November 27, 2025, SK Rapid Wien will face Raków Częstochowa in the fourth match of the league phase of the UEFA Conference League. The match will take place in Sosnowiec.Here are the k...",
-    "url": "https://onefootball.com/en/news/match-facts-rapid-vienna-v-rakow-czestochowa-conference-league-42006029",
-    "source": "Onefootball.com",
-    "image": "https://media.zenfs.com/en/onefootball_articles_802/e26752b92d34cf8cf09da02bd71ce0d5",
-    "theme": "intelligence artificielle",
-    "hash": "b9ced04f5ad0ac50be16d7e48fdc8761"
-  },
-  {
-    "titre": "Block: Digital Payment Scams Have a Surprisingly Youthful Face",
-    "resume": "Watch more: Digital Shift: Block’s Brian Boates Across the double-edged sword of technology, it’s fraud that can cut businesses the sharpest. The digital payments revolution has delivered speed, convenience and new pathways for financial empowerment. But it h…",
-    "url": "https://www.pymnts.com/digital-payments/2025/block-digital-payment-scams-have-a-surprisingly-youthful-face/",
-    "source": "pymnts.com",
-    "image": "https://www.pymnts.com/wp-content/uploads/2025/11/online-payments-scams.jpg",
-    "theme": "intelligence artificielle",
-    "hash": "fc9432fd8829bdfb2e5b2b30627a5483"
-  },
-  {
-    "titre": "HCLTech, SAP expand partnership to advance real-world Physical AI solutions",
-    "resume": "HCL Technologies is expanding its collaboration with SAP to develop Physical AI solutions, embedding artificial intelligence into real-world industrial and business operations. The partnership will focus on customer projects applying embodied AI to enhance pr…",
-    "url": "https://economictimes.indiatimes.com/tech/information-tech/hcltech-sap-expand-partnership-to-advance-real-world-physical-ai-solutions/articleshow/125584848.cms",
-    "source": "The Times of India",
-    "image": "https://img.etimg.com/thumb/width-1200,height-900,imgsize-148704,resizemode-75,msid-125584848/tech/information-tech/hcltech-sap-expand-partnership-to-advance-real-world-physical-ai-solutions.jpg",
-    "theme": "intelligence artificielle",
-    "hash": "51b24c695056d9d60a43c54441bb1ac7"
-  },
-  {
-    "titre": "2026 L&D Budget Priorities Every Leader Should Know",
-    "resume": "Smart 2026 budgets begin with Learning and Development (L&D) leaders who are familiar with the latest trends and close the training gaps within their organization. They build future-ready budgets that deliver real business value.\nThis post was first published…",
-    "url": "https://elearningindustry.com/2026-ld-budget-priorities-every-leader-should-know",
-    "source": "Elearningindustry.com",
-    "image": "https://cdn.elearningindustry.com/wp-content/uploads/2025/11/2026-LD-Budget-Priorities-Every-Leader-Should-Know.jpg",
-    "theme": "intelligence artificielle",
-    "hash": "733221f78d617addcc02bb200617bd91"
-  },
-  {
-    "titre": "Top five cybersecurity Black Friday deals for businesses 2025",
-    "resume": "Smart cybersecurity investments during Black Friday 2025. The best enterprise security deals with up to 60 percent off Partner Content  The annual Black Friday scramble isn't just for consumers elbowing each other for discounted tellies. For IT directors and …",
-    "url": "https://www.theregister.com/2025/11/26/cybersecurity-black-friday-2025/",
-    "source": "Theregister.com",
-    "image": "https://regmedia.co.uk/2019/08/06/shutterstock_biz_savings.jpg",
-    "theme": "intelligence artificielle",
-    "hash": "23feaf0987716f1ade93018ae2de45ec"
-  },
-  {
-    "titre": "Financial stability vulnerabilities remain elevated given uncertainty over geoeconomic trends and tariffs impact",
-    "resume": "The European Central Bank (ECB) is the central bank of the European Union countries which have adopted the euro. Our main task is to maintain price stability in the euro area and so preserve the purchasing power of the single currency.",
-    "url": "https://www.ecb.europa.eu//press/pr/date/2025/html/ecb.pr251126~4c11ba04d3.en.html",
-    "source": "Europa.eu",
-    "image": "https://www.ecb.europa.eu/press/shared/img/socialmedia/social-default.jpg?0ef1632c35edede913681bb76af694a4",
-    "theme": "intelligence artificielle",
-    "hash": "0f19f0d8debe858483cfba6bc3a246ad"
-  },
-  {
-    "titre": "Business schools have a responsibility to ‘train the leaders of tomorrow’ amid global ‘fragmentation’, says ESSEC dean Vincenzo Vinzi",
-    "resume": "It is a global institute of higher education with four campuses across three continents: Europe, Asia and Africa.",
-    "url": "https://fortune.com/2025/11/26/essec-business-school-dean-vincenzo-vinzi-ai-geopolitics/",
-    "source": "Fortune",
-    "image": "https://fortune.com/img-assets/wp-content/uploads/2025/11/Partners-Evening-e1764130011315.jpg?resize=1200,600",
-    "theme": "intelligence artificielle",
-    "hash": "b3ee3f5f034a888325ce84442ad14660"
-  },
-  {
-    "titre": "AI, 5G bring UK sports fans closer to the action",
-    "resume": "UK technology consortium built on academia, industry and UK regions claims mobile connectivity technology will be a ‘game changer’ for stadiums integrating existing stadium infrastructure with 5G, cloud-based private telecom network",
-    "url": "https://www.computerweekly.com/news/366634955/AI-5G-bring-UK-sports-fans-closer-to-the-action",
-    "source": "ComputerWeekly.com",
-    "image": "https://www.computerweekly.com/rms/computerweekly/MK-Dons-Project-ARANA.jpg",
-    "theme": "intelligence artificielle",
-    "hash": "bd7729e8a5c3501155104b956252f6fb"
-  },
-  {
-    "titre": "Splintering AI trade; Dell’s forecast; Deere to report - what’s moving markets",
-    "resume": "Bitcoin price today: subdued at $87.5k with focus on rate cut bets, Fed reshuffle\nInvesting.com - Futures linked to the main U.S. stock indices inch up, with observers eyeing a potential shift in the nature of the artificial intelligence trade. Dell Technolog…",
-    "url": "https://biztoc.com/x/5aae986176155b8f",
+    "titre": "Does the AI Boom Resemble the Dot-Com Meltdown? Here's What the Data Shows",
+    "resume": "Key Points\n-\nThe stock market trades at a high multiple.\n-\nInvestors have been buying artificial intelligence stocks hand over fist.\n-\nArguments can be made for and against the market being in an AI bubble.\nIf you've been following the stock market over the p…",
+    "url": "https://biztoc.com/x/7150125a842d45ff",
     "source": "Biztoc.com",
-    "image": "https://biztoc.com/cdn/5aae986176155b8f_s.webp",
+    "image": "https://biztoc.com/cdn/7150125a842d45ff_s.webp",
     "theme": "intelligence artificielle",
-    "hash": "07b51eff7e297b3dc1601fb25f8a0f57"
+    "hash": "4421721a2784439e4b9ecf92ecb47141"
   },
   {
-    "titre": "Champions League live plus BR 25, check Wednesday’s fixtures",
-    "resume": "Highlights of the Day UEFA Champions League2:45 PM – Pafos vs Monaco – TNT and HBO MAX2:45 PM – FC Copenhagen vs Kairat Almaty – Space and HBO MAX5:00 PM – Olympiacos vs Real Madrid – ...",
-    "url": "https://onefootball.com/en/news/champions-league-live-plus-br-25-check-wednesdays-fixtures-42005996",
-    "source": "Onefootball.com",
-    "image": "https://s.yimg.com/ny/api/res/1.2/n.UKKKiMnu_N5yU7A1oKxw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/onefootball_articles_802/6b4e6da2eba082135c206704626cee4b",
-    "theme": "intelligence artificielle",
-    "hash": "0b514e7ee568cb8e67402c2c6b89077d"
-  },
-  {
-    "titre": "Following Hamas Cyber-Op: IDF to monitor soldiers' social media with AI",
-    "resume": "The IDF will operate a new artificial intelligence system that will monitor soldiers' public posts on social networks, aiming to prevent the exposure of sensitive information.",
-    "url": "https://www.israelnationalnews.com/news/418385",
-    "source": "Israelnationalnews.com",
-    "image": "https://2.a7.org/files/pictures/000/1204258.jpg",
-    "theme": "intelligence artificielle",
-    "hash": "75b03987e2da872f7a31883647f71ff7"
-  },
-  {
-    "titre": "Reclaiming the Core: Why Modern Property Management Systems Define the Next Era of Hotel Intelligence",
-    "resume": "The past three years have reshaped the role and expectations of modern property management systems in ways few could have predicted. When the 2022 IDC MarketScape PMS report was released, the industry was still navigating cloud migration, shifting guest expec…",
-    "url": "https://www.hospitalitynet.org/news/4129961.html",
-    "source": "Hospitality Net",
-    "image": "https://www.hospitalitynet.org/picture/social_153191898.jpg?t=1764146483",
-    "theme": "intelligence artificielle",
-    "hash": "10cf21625ec2fcb2ab3e800f4eb87a11"
-  },
-  {
-    "titre": "CNBC Daily Open: The weight of Nvidia's crown",
-    "resume": "Uneasy lies the head that wears the crown.\nShares of artificial intelligence czar Nvidia fell 2.6% on Tuesday as signs of unrest continued rippling through its kingdom.\nOver the month, Nvidia has been contending with concerns over lofty valuations and an argu…",
-    "url": "https://biztoc.com/x/7b9cdcdd4bbe1fb3",
+    "titre": "AI scaling hasn’t reached a dead end yet, Chinese Google scientist says",
+    "resume": "There remains considerable potential to enhance artificial intelligence models by scaling up computing power and data, according to Yao Shunyu, a senior research scientist at Google DeepMind and former researcher at US AI start-up Anthropic.\nAmid heated discu…",
+    "url": "https://biztoc.com/x/a6e327a3a7c60ac3",
     "source": "Biztoc.com",
-    "image": "https://biztoc.com/cdn/7b9cdcdd4bbe1fb3_s.webp",
+    "image": "https://biztoc.com/cdn/a6e327a3a7c60ac3_s.webp",
     "theme": "intelligence artificielle",
-    "hash": "2d3ed1dcebb0a347eeeee87ee5be3004"
+    "hash": "2545dba3d2bf9d6ebd9a874c4718b3f3"
   },
   {
-    "titre": "Google, the sleeping giant in global AI race, now ‘fully awake’",
-    "resume": "Since the launch of ChatGPT three years ago, analysts and technologists — even a Google engineer and the company’s former chief executive officer — have declared Google behind in the high-stakes race to develop artificial intelligence. Not anymore.",
-    "url": "https://www.bloomberg.com/news/articles/2025-11-25/google-the-sleeping-giant-in-global-ai-race-now-fully-awake",
-    "source": "Bloomberg",
-    "image": "https://bl-i.thgim.com/public/incoming/xfbxj8/article70325186.ece/alternates/LANDSCAPE_1200/2025-11-24T154318Z_1737158446_RC2LWQ9J2UVQ_RTRMADP_3_GOOGLE-STOCKS.JPG",
+    "titre": "World's central banks are wary of AI and struggling to quit the dollar, survey shows",
+    "resume": "LONDON (Reuters) -Artificial Intelligence is not a core part of operations at most of the world's central banks and digital assets are off the ​table...",
+    "url": "https://finance.yahoo.com/news/worlds-central-banks-wary-ai-130241024.html",
+    "source": "Yahoo Entertainment",
+    "image": "https://media.zenfs.com/en/reuters-finance.com/e78412c4ad23a0f52be7c92ef7d6594d",
     "theme": "intelligence artificielle",
-    "hash": "614a9146638b0efc9d79ff06e4a03f68"
+    "hash": "519a79261ef170a0523fa4f8ddedb56f"
   },
   {
-    "titre": "Nasscom, IBM to train 87,000 underserved youth with future-ready digital skills",
-    "resume": "Beyond self-paced learning, the initiative includes mentorship and guided experiences to build technical proficiency and professional confidence",
-    "url": "https://www.thehindubusinessline.com/news/nasscom-ibm-to-train-87000-underserved-youth-with-future-ready-digital-skills/article70325193.ece",
-    "source": "BusinessLine",
-    "image": "https://bl-i.thgim.com/public/incoming/rqyv9q/article70165730.ece/alternates/LANDSCAPE_1200/IMG_ibm_2_1_TLA9A721.jpg",
+    "titre": "15 January / Jellicoe Award 2026 Nominations",
+    "resume": "The International Federation of Landscape Architects (IFLA) is accepting nominations for the 2026 Jellicoe Award, its highest professional honour. The award recognises living landscape architects whose work has made a lasting global impact on society, the env…",
+    "url": "https://landezine.com/15-january-jellicoe-award-2026-nominations/",
+    "source": "Landezine.com",
+    "image": "https://landezine.com/wp-content/uploads/2024/11/ifla-logo-nov-1270x813.jpg",
     "theme": "intelligence artificielle",
-    "hash": "6248447f72e3e081328c2bba71f98218"
+    "hash": "652571b46052fba91629d82878254f51"
+  },
+  {
+    "titre": "AI in Hiring, Thermal Paste, Anthropic, More: Wednesday ResearchBuzz, November 26, 2025",
+    "resume": "NEW RESOURCES University of Virginia: New Public Database Brings Transparency to AI Tools Used in Hiring. “On November 6, the Talent Acquisition and Recruiting AI (TARAI) Index—a first-of-its-kind, public, interactive database—will officially […]",
+    "url": "https://researchbuzz.me/2025/11/26/ai-in-hiring-thermal-paste-anthropic-more-wednesday-researchbuzz-november-26-2025/",
+    "source": "Researchbuzz.me",
+    "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvczAud3AuY29tXC9pXC9ibGFuay5qcGciLCJ0eHQiOiJSZXNlYXJjaEJ1enoiLCJ0ZW1wbGF0ZSI6ImhpZ2h3YXkiLCJmb250IjoiIiwiYmxvZ19pZCI6NDMyODc1Nn0.BjdcPIDlw4ZG0Ki13B-quwxnrzAxn9iB5rJXagRMNlcMQ",
+    "theme": "intelligence artificielle",
+    "hash": "b4afbc51d9167c84600b3761bcfa168b"
+  },
+  {
+    "titre": "Bremer back, Gimenez to Premier, Napoli eye two, Inter target youth",
+    "resume": "The fifth round of the Champions League League Phase comes alive with the second matchday. After the victories of Juventus and Napoli, respectively in Bodo and at home against Qarabag, tonight it's up...",
+    "url": "https://onefootball.com/en/news/bremer-returns-gimenez-to-premier-napoli-targets-inter-eye-youth-42007171",
+    "source": "Onefootball.com",
+    "image": "https://s.yimg.com/ny/api/res/1.2/3giJdw9SYI.zp0nT2cDOIw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/onefootball_articles_802/8d1fd324d3ea3ea82f45dd314b039a42",
+    "theme": "intelligence artificielle",
+    "hash": "7eb51ab88981750adc285ba23ed7c61b"
+  },
+  {
+    "titre": "Gemini's AI Image Detector Only Scratches the Surface. That's Not Good Enough",
+    "resume": "Commentary: If we want to believe our eyes online, we need an easy, universal way to tell if something is real or not.",
+    "url": "https://www.cnet.com/tech/services-and-software/geminis-ai-image-detector-only-scratches-the-surface-thats-not-good-enough/",
+    "source": "CNET",
+    "image": "https://www.cnet.com/a/img/resize/c5ffbd4cf0fa9a238ebfb83128a7f45a551b3eb0/hub/2025/11/14/b980c256-a1cc-41e2-9d1d-bf5e12e790af/ai-generative-photovideo-cnet4.png?auto=webp&fit=crop&height=675&width=1200",
+    "theme": "intelligence artificielle",
+    "hash": "379514d85986e24b377df328a5471b68"
   }
 ]
