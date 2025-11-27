@@ -1,0 +1,16 @@
+# Core dependencies
+streamlit
+requests
+python-dotenv
+
+# RSS and news collection
+feedparser
+
+# Google APIs
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+
+# AI/LLM
+groq

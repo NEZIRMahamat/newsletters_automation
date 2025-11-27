@@ -1,0 +1,56 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0; padding: 0;
+}
+.navbar {
+    background: #111827;
+    color: #f3f4f6;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar .logo {
+    font-size: 20px;
+    color: #f3f4f6;
+    text-decoration: none;
+}
+.nav-links a {
+    color: #9ca3af;
+    margin-left: 20px;
+    text-decoration: none;
+}
+.content {
+    padding: 25px;
+    max-width: 960px;
+    margin: 0 auto;
+    background: white;
+}
+.footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    background: #e5e7eb;
+}
+.card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px;
+}
+.card img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
+.article-title {
+    font-size: 30px;
+}
+.article-meta {
+    color: #6b7280;
+}
