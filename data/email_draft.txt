@@ -1,0 +1,18 @@
+Bonjour,
+
+Voici les trois informations clés de la veille IA :
+
+- Incident de sécurité chez Mixpanel : des logs internes contenant des métriques d’usage ont été exposés, mais aucun jeton d’accès, clé ou donnée d’identification n’a été compromis. OpenAI a désactivé les accès concernés, renforcé les contrôles d’audit et mis en place une surveillance accrue. Les utilisateurs doivent vérifier leurs paramètres de sécurité et signaler tout comportement suspect.
+
+- Extension de la résidence des données : les services ChatGPT Enterprise, ChatGPT Edu et l’API offrent désormais la possibilité de stocker les données au repos dans la région géographique choisie par le client. Les données restent chiffrées, les accès sont strictement contrôlés, ce qui facilite la conformité aux législations locales pour les entreprises multinationales et les établissements éducatifs.
+
+- Gestion des contentieux liés à la santé mentale : chaque cas sensible est traité avec confidentialité et empathie, les décisions sont documentées et communiquées, et des mécanismes de détection proactive de contenus à risque sont déployés. L’approche intègre les retours d’expérience pour améliorer continuellement le soutien aux utilisateurs.
+
+L’article mis en avant dans la capsule audio porte sur l’incident de sécurité chez Mixpanel.
+
+Cordialement,
+
+[Votre prénom] [Votre nom]  
+[Votre fonction]  
+[Votre société]  
+[Coordonnées]
