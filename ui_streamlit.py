@@ -27,12 +27,16 @@ from app.core.logging_utils import LOG_FILE
 
 
 st.set_page_config(
-    page_title="Veille IA – Multi Agents",
-    page_icon="🧠",
+    page_title="All NewsAI - Plateforme de veille unifiée",
     layout="wide"
 )
 
-st.title("🧠 Plateforme de Veille IA – Multi-Agents")
+# Affichage du logo
+col1, col2 = st.columns([1, 5])
+with col1:
+    st.image("allnewsai_logo.jpg", width=180)
+with col2:
+    st.markdown("<h1 style='margin-top: 40px;'>Plateforme de veille automatique</h1>", unsafe_allow_html=True)
 
 config = load_user_config()
 
@@ -184,14 +188,12 @@ if st.sidebar.button("Générer maintenant"):
 # ---------------------------------------------------------------------
 # TABS
 # ---------------------------------------------------------------------
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📝 Collecte",
     "🧠 Analyse",
     "⭐ Sélection",
-    "📰 Newsletter",
+    "📰 Newsletters",
     "📰 Blog",
-    "🎧 Audio",
-    "📧 Email",
 ])
 
 
@@ -222,22 +224,118 @@ with tab3:
         sel = json.loads(SELECTION_PATH.read_text(encoding="utf-8"))
         data = json.loads(ENRICHED_PATH.read_text(encoding="utf-8"))
 
-        st.subheader("📌 Articles sélectionnés")
+        # Génération du HTML stylisé
+        html_content = """
+        <style>
+            .selection-container {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .article-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 15px;
+                padding: 25px;
+                margin: 20px 0;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                color: white;
+                transition: transform 0.3s ease;
+            }
+            .article-card:hover {
+                transform: translateY(-5px);
+            }
+            .article-title {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #fff;
+            }
+            .article-theme {
+                display: inline-block;
+                background: rgba(255,255,255,0.2);
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+            .article-summary {
+                font-size: 16px;
+                line-height: 1.6;
+                margin-top: 10px;
+            }
+            .article-url {
+                margin-top: 15px;
+            }
+            .article-url a {
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 2px solid #fff;
+                padding-bottom: 2px;
+            }
+            .article-url a:hover {
+                opacity: 0.8;
+            }
+            .audio-badge {
+                background: #ff6b6b;
+                color: white;
+                padding: 8px 16px;
+                border-radius: 25px;
+                font-size: 14px;
+                font-weight: bold;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+            .section-title {
+                font-size: 28px;
+                font-weight: bold;
+                color: #333;
+                margin: 30px 0 20px 0;
+                padding-bottom: 10px;
+                border-bottom: 3px solid #667eea;
+            }
+        </style>
+        <div class="selection-container">
+        """
+        
+        # Articles sélectionnés
+        html_content += '<div class="section-title">📌 Articles Sélectionnés</div>'
         for idx in sel["indices_selection"]:
             if idx < len(data):
-                st.write(f"- **{data[idx]['titre']}** ({data[idx].get('sous_theme','')})")
-
-        st.subheader("🎧 Article principal (audio)")
+                article = data[idx]
+                html_content += f"""
+                <div class="article-card">
+                    <div class="article-theme">{article.get('sous_theme', 'Non classé')}</div>
+                    <div class="article-title">{article['titre']}</div>
+                    <div class="article-summary">{article.get('resume', 'Pas de résumé disponible')}</div>
+                    <div class="article-url"><a href="{article.get('url', '#')}" target="_blank">🔗 Lire l'article complet</a></div>
+                </div>
+                """
+        
+        # Article principal (audio)
+        html_content += '<div class="section-title">🎧 Article Principal (Audio)</div>'
         idx = sel["index_audio"]
         if idx < len(data):
-            st.success(data[idx]["titre"])
+            article = data[idx]
+            html_content += f"""
+            <div class="article-card">
+                <div class="audio-badge">🎙️ VERSION AUDIO DISPONIBLE</div>
+                <div class="article-theme">{article.get('sous_theme', 'Non classé')}</div>
+                <div class="article-title">{article['titre']}</div>
+                <div class="article-summary">{article.get('resume', 'Pas de résumé disponible')}</div>
+                <div class="article-url"><a href="{article.get('url', '#')}" target="_blank">🔗 Lire l'article complet</a></div>
+            </div>
+            """
+        
+        html_content += "</div>"
+        
+        st.components.v1.html(html_content, height=800, scrolling=True)
 
     else:
         st.info("Sélection non disponible.")
 
 # ------------------ TAB NEWSLETTER ------------------
 with tab4:
-    st.header("📰 Newsletter HTML")
+    st.header("📰 Newsletters de la semaine")
     if NEWSLETTER_HTML_PATH.exists():
         html = NEWSLETTER_HTML_PATH.read_text(encoding="utf-8")
         st.components.v1.html(html, height=900, scrolling=True)
@@ -252,20 +350,3 @@ with tab5:
         st.components.v1.html(html, height=900, scrolling=True)
     else:
         st.info("Blog non généré.")
-
-# ------------------ TAB AUDIO ------------------
-with tab6:
-    st.header("🎧 Capsule audio")
-    if AUDIO_PATH.exists():
-        st.audio(str(AUDIO_PATH))
-    else:
-        st.info("Pas d'audio.")
-
-# ------------------ TAB EMAIL ------------------
-with tab7:
-    st.header("📧 Email généré")
-    if EMAIL_DRAFT_PATH.exists():
-        content = EMAIL_DRAFT_PATH.read_text(encoding="utf-8")
-        st.text_area("Email (texte brut)", content, height=200)
-    else:
-        st.info("Aucun email généré.")
