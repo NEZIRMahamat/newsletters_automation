@@ -144,11 +144,9 @@ else:
 
 
 # --------------------------------------
-# 🧠 Détection thème IA
+# 🔍 Détection thème IA
 # --------------------------------------
-st.sidebar.subheader("🧠 Détection automatique des thèmes")
-# --------------------------------------
-st.sidebar.subheader("🧠 Détection automatique des thèmes")
+st.sidebar.subheader("🔍 Détection automatique des thèmes")
 
 txt = st.sidebar.text_area("Décris ta veille IA", placeholder="Ex : veille IA, LLM, ML…")
 
