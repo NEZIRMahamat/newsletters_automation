@@ -296,7 +296,7 @@ with tab3:
         """
         
         # Articles sélectionnés
-        html_content += '<div class="section-title">📌 Articles Sélectionnés</div>'
+        html_content += '<div class="section-title">Articles Sélectionnés</div>'
         for idx in sel["indices_selection"]:
             if idx < len(data):
                 article = data[idx]
