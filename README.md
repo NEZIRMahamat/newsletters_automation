@@ -421,7 +421,7 @@ Pour toute question ou suggestion :
 
 ---
 
-**Made with ❤️ by HETIC Students | MD 2025**
+**Made with ❤️ by the All NewsAI Team**
 
 - [Groq](https://groq.com/) pour l'API LLM gratuite
 - [SMTP2GO](https://www.smtp2go.com/) pour l'envoi d'emails
