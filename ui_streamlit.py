@@ -188,7 +188,7 @@ if st.sidebar.button("Générer maintenant"):
 # ---------------------------------------------------------------------
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📝 Collecte",
-    "🧠 Analyse",
+    "   Analyse",
     "⭐ Sélection",
     "📰 Newsletters",
     "📰 Blog",
@@ -207,7 +207,7 @@ with tab1:
 
 # ------------------ TAB ANALYSE ------------------
 with tab2:
-    st.header("🧠 Analyse LLM")
+    st.header("Analyse LLM")
     if ENRICHED_PATH.exists():
         data = json.loads(ENRICHED_PATH.read_text(encoding="utf-8"))
         st.write(f"**{len(data)} articles enrichis**")
@@ -217,7 +217,7 @@ with tab2:
 
 # ------------------ TAB SÉLECTION ------------------
 with tab3:
-    st.header("⭐ Sélection IA")
+    st.header("⭐ Sélection intelligente")
     if SELECTION_PATH.exists():
         sel = json.loads(SELECTION_PATH.read_text(encoding="utf-8"))
         data = json.loads(ENRICHED_PATH.read_text(encoding="utf-8"))
